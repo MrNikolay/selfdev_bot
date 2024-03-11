@@ -1,0 +1,7 @@
+{
+  "host": "localhost",
+  "user": "admin",
+  "port": 3306,
+  "password": "ILoveGidrostroitel2024",
+  "database": "mydb"
+}
