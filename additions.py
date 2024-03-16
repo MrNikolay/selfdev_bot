@@ -21,6 +21,7 @@ def error(message: str, is_wait: bool = True) -> None:
 
 
 def get_token(param_name: str) -> str:
+    log('Получаем токен')
     if param_name not in os.environ:
         error('Ошибка: Не удалось найти переменную среды - "TOKEN"', is_wait=False)
         print(
@@ -29,12 +30,16 @@ def get_token(param_name: str) -> str:
         )
         exit()
 
+    log('ОК!', type=2)
     return os.environ['TOKEN']
 
 
 def launch_bot(token: str) -> telebot.TeleBot:
     try:
-        return telebot.TeleBot(token)
+        log('Инициализируем бот')
+        bot = telebot.TeleBot(token)
+        log('ОК!', type=2)
+        return bot
 
     except Exception as ex:
         error('Ошибка: При инициализации бота произошла какая-то ошибка', is_wait=False)
